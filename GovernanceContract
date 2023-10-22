@@ -1,0 +1,59 @@
+address 0x1 {
+
+module Governance {
+
+    // Using the key ability to specify that Token can be stored in Sui storage
+    resource struct Token has key {
+        id: address, // ObjectID, the first field in any struct with key ability
+        balance: u64,
+    }
+
+    resource struct Proposal has key {
+        id: address,
+        description: vector<u8>,
+        yes_votes: u64,
+        no_votes: u64,
+        status: u8,
+    }
+
+    // Module initializer
+    fun init(ctx: &mut TxContext) {
+        // Potentially create singleton objects or perform other initialization here
+    }
+
+    // An entry function to create a proposal
+    public(script) fun create_proposal(ctx: &mut TxContext, id: address, description: vector<u8>) {
+        move_to<Token>(&mut ctx.sender, Proposal {
+            id: id,
+            description: description,
+            yes_votes: 0,
+            no_votes: 0,
+            status: 0,
+        });
+    }
+
+    // An entry function to vote on a proposal
+    public(script) fun vote(ctx: &mut TxContext, proposal: &Proposal, support: bool) {
+        let token = borrow_from<Token>(&ctx.sender);
+        
+        // Since we're no longer using global storage in the same way, our means of access has to be adjusted.
+        if (support) {
+            proposal.yes_votes = proposal.yes_votes + token.balance;
+        } else {
+            proposal.no_votes = proposal.no_votes + token.balance;
+        }
+
+        if (proposal.yes_votes > (proposal.yes_votes + proposal.no_votes) / 2) {
+            proposal.status = 1;
+        }
+    }
+
+    // Entry function to execute a proposal
+    public(script) fun execute_proposal(ctx: &mut TxContext, proposal: &Proposal) {
+        assert(proposal.status == 1, 404);
+        proposal.status = 3;  // Mark the proposal as executed
+    }
+
+}
+
+}
