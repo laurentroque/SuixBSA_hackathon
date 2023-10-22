@@ -6,7 +6,7 @@ Sui Foundation x École polytechnique fédérale de Lausanne Blockchain Student 
 A marketplace for the exchange and sale of NFTs with incentive benefits such as governance tokens.
 
 Writen in Sui Move \
-Submission for judicial review by the Cambridge Blockchain Society (Team Camb)
+Submission by the Cambridge Blockchain Society (Team Camb) for judicial review
 
 ## Contents
 - images folder houses off-chain image url pointed to by minted NFT
