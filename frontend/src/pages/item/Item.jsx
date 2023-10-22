@@ -4,7 +4,7 @@ import creator from '../../assets/seller2.png'
 import item from '../../assets/item1.png'
 import { Link, useParams } from 'react-router-dom';
 import { useWallet } from '@suiet/wallet-kit'
-import { TransactionBlock } from "@mysten/sui.js";
+// import { TransactionBlock } from "@mysten/sui.js";
 
 const mapping = {
   0: { targetId: "", name: "Abstract Smoke Red", imgAddress: "https://github.com/kasim393/NFT-Marketplace-UI/blob/main/src/assets/bids1.png?raw=true" },
@@ -34,7 +34,7 @@ const Item = () => {
   };
   const handleOnClick = () => {
     let targetId = mapping[id].targetId;
-    let address = wallet.account.address;
+    let address = wallet.account?wallet.account.address:"";
     console.log("buying", targetId, address);
 
     // let tx = new TransactionBlock();
@@ -55,7 +55,7 @@ const Item = () => {
       <div className="item-content">
         <div className="item-content-title">
           <h1>{mapping[id].name}</h1>
-          <p>From <span>4.5 SUI</span> ‧ 20 of 25 available</p>
+          <p><span>100 SUI (transfer fee: 1%) </span> ‧ 20 of 25 available</p>
         </div>
         <div className="item-content-creator">
           <div><p>Creater</p></div>
@@ -69,11 +69,15 @@ const Item = () => {
 
         </div>
         <div className="item-content-buy">
-
-          <button style={{ color: isButtonDisabled ? 'gray' : 'white' }} onClick={handleOnClick} className="primary-btn">Buy For 4.5 SUI</button>
-
-
-          {/* <button className="secondary-btn">Make Offer</button> */}
+          <Link >
+            {isButtonDisabled &&
+              <button style={{ color:'black'  }} onClick={handleOnClick} className="primary-btn">Bought!</button>
+            }
+            {!isButtonDisabled &&
+              <button style={{ color: 'white' }} onClick={handleOnClick} className="primary-btn">Buy For 100 SUI</button>
+            }
+            
+          </Link>
         </div>
       </div>
     </div>
