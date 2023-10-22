@@ -11,6 +11,7 @@ Submission by the Cambridge Blockchain Society (Team Camb) for judicial review
 ## Contents
 - images folder houses off-chain image url pointed to by minted NFT
 - nft_press contains the script for creating an NFT
+- frontend folder contains storefront website code
 - slides folder contains pitch slides
 
 
