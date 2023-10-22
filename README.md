@@ -2,7 +2,7 @@
 Sui Foundation x École polytechnique fédérale de Lausanne Blockchain Student Association Web3 Hackathon \
 21 -- 22 October 2023 at the EPFL Campus (BC building)
 
-WHAT ARE WE CALLING THIS??? \
+# SuiDrop
 A marketplace for the exchange and sale of NFTs with incentive benefits such as governance tokens.
 
 Writen in Sui Move \
@@ -11,6 +11,7 @@ Submission for judicial review by the Cambridge Blockchain Society (Team Camb)
 ## Contents
 - images folder houses off-chain image url pointed to by minted NFT
 - nft_press contains the script for creating an NFT
+- slides folder contains pitch slides
 
 
 ## Resources
