@@ -18,13 +18,13 @@ Hackathon Webpage: https://bsaepfl.ch/hackathon/
 
 Images available on Sui Explore (devnet)
 - Abstract Smoke Red: ID HERE
-- 
--
--
--
--
--
--
+- Mountain Landscape:
+- Paint Colour on Wall:
+- Abstract Pattern:
+- White Line Grafiti:
+- Abstract Triangle:
+- Lake Landscape:
+- Blue Red Art:
 
 
 This is a demo project\
